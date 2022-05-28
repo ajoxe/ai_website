@@ -10,10 +10,12 @@ function readTextFile(file)
             {
                 var allText = rawFile.responseText;
                 alert(allText);
+                return allText;
             }
         }
     }
     rawFile.send(null);
+    return rawFile.responseText;
 }
 
 (function() {
@@ -22,7 +24,10 @@ function readTextFile(file)
                 (function(root) {
                   function embed_document(root) {
                     var fileContent = readTextFile("/static/json/bokehplot.json");
+
                     var docs_json = JSON.parse(fileContent);
+                    console.log(fileContent)
+                    console.log(docs_json)
                     var render_items = [{"docid":"bf865df3-9a9c-41a8-a5e4-20d0b98404c4","roots":{"1287":"c07bff17-4985-492c-b39f-9dadaa02f9fa"}}];
                     root.Bokeh.embed.embed_items(docs_json, render_items);
                   }
