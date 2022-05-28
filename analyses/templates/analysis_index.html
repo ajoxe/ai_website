@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+
+{% include "graph/plotly.html" %}
+
+<h1>Analyses</h1>
+<div class="row">
+{% for analysis in analyses %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static analysis.preview_image %} " height="300">
+            <div class="card-body">
+                <h5 class="card-title">{{ analysis.name }}</h5>
+                <p class="card-text">{{ analysis.description }}</p>
+                <a href="{% url 'analysis_detail' analysis.pk %}"
+                   class="btn btn-primary">
+                    View
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
