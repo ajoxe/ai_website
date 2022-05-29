@@ -2,8 +2,7 @@
 {% load static %}
 {% block page_content %}
 
-<iframe id="encoder_iframe" height=100% width="100%" src="/static/graph/plotly.html">
-</iframe>
+{{ featured_contents|safe }}
 
 <h1>Analyses</h1>
 <div class="row">
@@ -12,8 +11,8 @@
         <div class="card mb-2">
             <img class="card-img-top" src="{% static analysis.preview_image %} " height="300">
             <div class="card-body">
-                <h5 class="card-title">{{ analysis.name|safe }}</h5>
-                <p class="card-text">{{ analysis.description|safe }}</p>
+                <h5 class="card-title">{{ analysis.name }}</h5>
+                <p class="card-text">{{ analysis.description }}</p>
                 <a href="{% url 'analysis_detail' analysis.pk %}"
                    class="btn btn-primary">
                     View
