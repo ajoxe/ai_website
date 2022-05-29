@@ -21,3 +21,10 @@ a3 = Analysis(
     preview_image='img/papers_per_year.png'
 )
 a3.save()
+a4 = Analysis(
+    name="Calamity by region",
+    description="Most Referred Locations Per Calamities",
+    graph='graph/disasters_per_location.html',
+    preview_image='img/calamity_by_region.png'
+)
+a4.save()
