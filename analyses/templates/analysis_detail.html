@@ -3,5 +3,5 @@
 
 {% block page_content %}
     <h1>{{ analysis.name }}</h1>
-    {% include analysis.graph %}
+    {{ graph_contents|safe}}
 {% endblock %}
