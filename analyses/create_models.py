@@ -1,23 +1,23 @@
 from analyses.models import Analysis
 
 a1 = Analysis(
-    name="Explorations",
-    description="Explore research papers",
-    graph='graph/plotly.html',
-    preview_image='img/plotly_preview.png'
+    name="K-Means Clustering of Natural Disaster papers",
+    description="Papers of the same color represent a cluster of similar theme. Papers appearing closer together are closer in content.",
+    graph='graph/research_paper_clusters.html',
+    preview_image='img/research_paper_clustering.png'
 )
 a1.save()
 a2 = Analysis(
-    name="Topics",
-    description="Explore topics",
-    graph='graph/topicmodel.html',
-    preview_image='img/topic_preview.png'
+    name="Topic Model of papers",
+    description="Topic Model of papers",
+    graph='graph/topic_model.html',
+    preview_image='img/topic_model.png'
 )
 a2.save()
 a3 = Analysis(
-    name="Knowledge",
-    description="test",
-    graph='graph/test',
-    preview_image='img/test.png'
+    name="Research Papers Per Year On Natural Disasters",
+    description="Research Papers Per Year On Natural Disasters",
+    graph='graph/papers_per_year',
+    preview_image='img/papers_per_year.png'
 )
 a3.save()
