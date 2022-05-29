@@ -6,10 +6,6 @@ def analysis_index(request):
     context = {
     'analyses': analyses
     }
-    print("*****ANALYSIS")
-    print(analyses)
-    analysis_1_name = analyses[0].preview_image
-    print(analysis_1_name)
     return render(request, 'analysis_index.html', context)
 
 def analysis_detail(request, pk):
@@ -17,5 +13,4 @@ def analysis_detail(request, pk):
     context = {
     'analysis': analysis
     }
-    print("*****ANALYSIS DETAIL")
     return render(request, 'analysis_detail.html', context)
