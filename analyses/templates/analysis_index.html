@@ -1,16 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block page_content %}
 
 {{ featured_contents|safe }}
 
-<div class="stext-center container-fluid docked" style="background-color:grey;" >
-   <div class="row mb-2" >
-      <div class="col text-center">
-         <h1>More analyses to explore!</h1>
-      </div>
-   </div>
-   <div class="row d-flex align-items-center">
+<div id="accordionExample" class="stext-center container-fluid docked" style="background-color:#F8F8F8;" >
+<!--   <div class="row mb-2" id="headingOne">-->
+<!--       <h5 class="mb-0">-->
+<!--        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+<!--          Collapsible Group Item #1-->
+<!--        </button>-->
+<!--      </h5>-->
+<!--   </div>-->
+   <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="row d-flex align-items-center collapse">
       <div class="col-1 d-flex align-items-center justify-content-center">
          <a href="#carouselExampleIndicators" role="button" data-slide="prev">
             <div class="carousel-nav-icon">
