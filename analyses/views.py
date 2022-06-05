@@ -26,3 +26,11 @@ def analysis_detail(request, pk):
         'graph_contents': contents
     }
     return render(request, 'analysis_detail.html', context)
+
+
+def analysis_all(request):
+    analyses = Analysis.objects.all()
+    context = {
+        'analyses': analyses
+    }
+    return render(request, 'analysis_all.html', context)

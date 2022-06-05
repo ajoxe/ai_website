@@ -15,7 +15,7 @@ a2 = Analysis(
 )
 a2.save()
 a3 = Analysis(
-    name="Research Papers Per Year On Natural Disasters",
+    name="Research Papers Per Year",
     description="Research Papers Per Year On Natural Disasters",
     graph='graph/papers_per_year.html',
     preview_image='img/papers_per_year.png'
@@ -28,3 +28,17 @@ a4 = Analysis(
     preview_image='img/calamity_by_region.png'
 )
 a4.save()
+a5 = Analysis(
+    name="Top Researchers per Calamity",
+    description="Top Researchers per Calamity",
+    graph='graph/authors_calamity.html',
+    preview_image='img/authors_per_calamity.png'
+)
+a5.save()
+a6 = Analysis(
+    name="Tools per Calamity",
+    description="Tools per Calamity",
+    graph='graph/tool_prominence.html',
+    preview_image='img/tool_prominence.png'
+)
+a6.save()
