@@ -24,42 +24,66 @@ h1 {
     padding-top: 40px;
     text-align: center;
 <!--    position: fixed;-->
-    bottom: 0%;
-    left: 0%;
+<!--    bottom: 0%;-->
+<!--    left: 0%;-->
+    clear:both;
     box-sizing: border-box;
-    margin: 0px;
+    margin-top: 100px;
+    display: block;
+    clear:both;
 }
 ::-webkit-scrollbar {
     width: 0px;
     background: transparent; /* make scrollbar transparent */
 }
-.page-content {
-  height: 90%;
+
+.attribution{
+bottom: -500px;
+color:#8F9493;
+margin-top: 100px;
+margin-left: auto;
+  margin-right: auto;
+  text-align: right;
+}
+.featured {
   width: 90%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
+  display: block;
+  clear:both;
+}
+.ai-nav{
+left: 60%;
+align-items:flex-end !important;
+display: inline-block;
+}
+.ai-nav-div{
+margin-bottom: 40px;
+padding-top: 20px;
 }
 </style>
+<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo.png' %}" />
 
-<title>Climate Index</title>
+<title>Natural Disaster Index</title>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container-fluid">
+<nav class="ai-nav-div navbar navbar-expand-lg navbar-light bg-white me-auto justify-content-end flex-row-reverse ai-nav">
+    <div class="container-fluid justify-content-end me-auto">
         <a class="navbar-brand" href="{% url 'analysis_index' %}">
             <img src="{% static 'img/logo.png' %}" width="45" alt="" class="d-inline-block align-middle mr-2">
-            <span class="text-uppercase font-weight-bold">Climate Index</span>
+            <span class="text-uppercase font-weight-bold">Natural Disaster Index</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse ai-nav" id="navbarSupportedContent">
+          <ul class="navbar-nav ai-nav">
 <!--            <li class="nav-item active">-->
 <!--              <a class="nav-link" href="{% url 'analysis_index' %}">Home</a>-->
 <!--            </li>-->
-            <li class="nav-item active">
-              <a class="nav-link" href="{% url 'analysis_all' %}">All Analyses</a>
+            <li class="nav-item ai-nav active">
+              <a class="nav-link ai-nav" href="{% url 'analysis_all' %}">All Analyses</a>
             </li>
           </ul>
         </div>

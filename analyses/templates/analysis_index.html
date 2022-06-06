@@ -1,24 +1,59 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% block page_content %}
+<style>
+body {
+    background-color: black !important;
+}
+.navbar {
+background-color: black !important;
+}
+.navbar-brand {
+    color: #3F5450 !important;
+}
+.ai-nav{
+color: #3F5450 !important;
+}
+.navbar-nav {
+    color: white !important;
+}
+h5 {
+    color: #DAF7A6;
+}
+.card-text{
+    color: #6DC292;
+}
+.card-title{
+    color: #9FD7B8;
+}
+label{
+color:#88F6DA
+}
+.bk-slider-title{
+color:#88F6DA
+}
+.featured {
+  height: 90%;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  clear:both;
+}
 
+</style>
+
+<div class="featured container-fluid">
 {{ featured_contents|safe }}
+</div>
 
-<div id="accordionExample" class="stext-center container-fluid docked" style="background-color:#F8F8F8;" >
-<!--   <div class="row mb-2" id="headingOne">-->
-<!--       <h5 class="mb-0">-->
-<!--        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
-<!--          Collapsible Group Item #1-->
-<!--        </button>-->
-<!--      </h5>-->
-<!--   </div>-->
-   <div id="collapseOne" aria-labelledby="headingOne" data-parent="#accordionExample" class="row d-flex align-items-center collapse">
+<div class="stext-center carousel container-fluid docked" style="background-color: #0A0A0A;" >
+   <div id="collapseOne" aria-labelledby="headingOne" class="row d-flex align-items-center collapse">
       <div class="col-1 d-flex align-items-center justify-content-center">
          <a href="#carouselExampleIndicators" role="button" data-slide="prev">
             <div class="carousel-nav-icon">
                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <path d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6,1.6-1.6,4.2 0,5.8l54,53.9z"/>
+                  <path fill="#9FD7B8" d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6,1.6-1.6,4.2 0,5.8l54,53.9z"/>
                </svg>
             </div>
          </a>
@@ -73,11 +108,14 @@
       <div class="col-1 d-flex align-items-center justify-content-center"><a  href="#carouselExampleIndicators" data-slide="next">
          <div class="carousel-nav-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <path d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"/>
+               <path fill="#9FD7B8" d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"/>
             </svg>
          </div>
          </a>
       </div>
    </div>
+</div>
+<div class="container-fluid attribution">
+    <a class="attribution" href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by Darius Dan - Flaticon</a>
 </div>
 {% endblock %}

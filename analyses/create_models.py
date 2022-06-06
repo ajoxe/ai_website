@@ -15,7 +15,7 @@ a2 = Analysis(
 )
 a2.save()
 a3 = Analysis(
-    name="Research Papers Per Year",
+    name="Papers Per Calamity",
     description="Research Papers Per Year On Natural Disasters",
     graph='graph/papers_per_year.html',
     preview_image='img/papers_per_year.png'
