@@ -17,13 +17,15 @@ def analysis_index(request):
 
 
 def analysis_detail(request, pk):
+    analyses = Analysis.objects.all()
     analysis = Analysis.objects.get(pk=pk)
     file_handle = finders.find(analysis.graph)
     with open(file_handle, 'r') as f:
         contents = f.read()
     context = {
         'analysis': analysis,
-        'graph_contents': contents
+        'graph_contents': contents,
+        'analyses': analyses
     }
     return render(request, 'analysis_detail.html', context)
 
