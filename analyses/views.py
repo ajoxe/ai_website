@@ -22,9 +22,17 @@ def analysis_detail(request, pk):
     file_handle = finders.find(analysis.graph)
     with open(file_handle, 'r') as f:
         contents = f.read()
+    contents_2 = None
+    if analysis.secondary_graph is not None and analysis.secondary_graph != 'plotly.html':
+        file_handle = finders.find(analysis.secondary_graph)
+        with open(file_handle, 'r') as f:
+            contents_2 = f.read()
+    graph_contents = [contents]
+    if contents_2:
+        graph_contents.append(contents_2)
     context = {
         'analysis': analysis,
-        'graph_contents': contents,
+        'graph_contents': graph_contents,
         'analyses': analyses
     }
     return render(request, 'analysis_detail.html', context)

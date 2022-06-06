@@ -8,20 +8,22 @@
     margin-top: 0px;
     }
     .card-text{
-    color: #6DC292;
+    color: #454545
 }
 .docked path {
-fill:#9FD7B8 !important;
+fill:#454545 !important;
 }
 .card-title{
-    color: #9FD7B8;
+    color: #454545
 }
 </style>
 <div class="featured container-fluid">
     <h1>{{ analysis.name }}</h1>
-    {{ graph_contents|safe}}
+    {% for content in graph_contents %}
+        {{ content|safe}}
+    {% endfor %}
 </div>
-<div class="stext-center docked" style="background-color: #0A0A0A;" >
+<div class="stext-center docked" style="background-color: #f2f2f2; border-radius: 90px; padding-top: 60px; padding-bottom: 60px;" >
    <div id="collapseOne" aria-labelledby="headingOne" class="row d-flex align-items-center collapse">
       <div class="col-1 d-flex align-items-center justify-content-center">
          <a href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -59,7 +61,7 @@ fill:#9FD7B8 !important;
                <div class="carousel-item">
                   <div class="row">
                      {% for analysis in analyses %}
-                            {% if  forloop.counter0 >= 3 %}
+                            {% if  forloop.counter0 >= 3 and forloop.counter0 <= 5  %}
                       <div class="col-md-4">
                           <a href="{% url 'analysis_detail' analysis.pk %}">
                             <div style="background-image:url('{% static analysis.preview_image %}');" class="col-4 col-md d-flex align-items-center justify-content-center" >
