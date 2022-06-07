@@ -6,6 +6,8 @@ from django.shortcuts import render
 
 from .forms import QuestionForm
 from .forms import Answer
+from django import forms
+from .query import search
 
 
 def analysis_index(request):
@@ -54,13 +56,16 @@ def analysis_all(request):
 def get_answer(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        print("*********** ******** **************")
-        print("*********** POST **************")
-        print("*********** ******** **************")
         form = QuestionForm(request.POST)
-        answer = Answer("test", ["test 1", "test 2"])
-        return render(request, 'answer.html', {'form': QuestionForm(), 'answer': answer})
+        answer_form = Answer("test", ["test 1", "test 2"])
+        if form.is_valid():
+            question = form.cleaned_data.get("question")
+            answer_fields = search(question)
+            answer_form = Answer(answer_fields[0], answer_fields[1], question)
+
+        print("*********** ******** **************")
+        return render(request, 'ask_ai.html', {'form': QuestionForm(), 'answer': answer_form})
     else:
         form = QuestionForm()
 
-    return render(request, 'question.html', {'form': form, 'answer': Answer()})
+    return render(request, 'ask_ai.html', {'form': form, 'answer': Answer()})

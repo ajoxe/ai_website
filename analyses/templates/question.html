@@ -1,7 +1,12 @@
-<form action="answer" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
 
-{% include "answer.html" with response=answer only%}
+<form action="ask_ai" method="post">
+    <div class="centered">
+    {% csrf_token %}
+
+    {{ form }}
+    </div>
+       <div class="centered">
+    <input type="submit" value="Submit" id="submit_button">
+       </div>
+
+</form>
