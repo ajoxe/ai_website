@@ -57,13 +57,11 @@ def get_answer(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
         form = QuestionForm(request.POST)
-        answer_form = Answer("test", ["test 1", "test 2"])
+        answer_form = Answer()
         if form.is_valid():
             question = form.cleaned_data.get("question")
             answer_fields = search(question)
             answer_form = Answer(answer_fields[0], answer_fields[1], question)
-
-        print("*********** ******** **************")
         return render(request, 'ask_ai.html', {'form': QuestionForm(), 'answer': answer_form})
     else:
         form = QuestionForm()

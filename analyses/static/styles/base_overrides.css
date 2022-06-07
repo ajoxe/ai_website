@@ -1,0 +1,70 @@
+.carousel-nav-icon {
+    height: 48px;
+    width: 48px;
+}
+.carousel-item .col, .carousel-item .col-sm, .carousel-item .col-md {
+    margin: 8px;
+    height: 200px;
+    background-size: cover;
+    background-position: center center;
+}
+* {
+    font-family: 'Roboto', sans-serif !important;
+}
+h1 {
+  font-weight: 700;
+}
+
+.docked {
+    width: 100%;
+    height: 400px;
+    background: #fff;
+    padding-top: 40px;
+    text-align: center;
+    clear:both;
+    box-sizing: border-box;
+    margin-top: 100px;
+    display: block;
+    clear:both;
+}
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.attribution{
+    bottom: -500px;
+    color:#8F9493;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: right;
+}
+.featured {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  display: block;
+  clear:both;
+}
+.ai-nav{
+    left: 50%;
+    align-items:flex-end !important;
+    display: inline-block;
+}
+.ai-nav-div{
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+.navbar-brand {
+    color: #b3b3b3 !important;
+}
+.ai-nav{
+    color: #b3b3b3 !important;
+}
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

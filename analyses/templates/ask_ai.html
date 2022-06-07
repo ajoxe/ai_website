@@ -1,43 +1,50 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+
 <style>
-    #id_question{
+#id_question{
     display:block;
     width:100%;
     margin-bottom: 20px;
     border-radius: 40px;
     padding:8 14 8 14;
-    }
-    #submit_button{
+}
+#submit_button{
     border-radius: 40px;
     padding:8 14 8 14;
-    }
-    form {
+}
+form {
     width: 60%;
     left: 50%;
-    }
-    .answer-container{
+}
+.answer-container{
     width: 60%;
     left: 50%;
-    }
-    img{
+}
+img{
     display:block;
     margin:auto;
     padding-bottom: 20;
-    }
-    .attribution{
+}
+.attribution{
     position: fixed;
     bottom: 0%;
     padding-top: 20;
     display:block;
     margin:auto;
-    }
+}
+.block_answer{
+    display:block;
+    margin:auto;
+    text-align: center;
+}
+
 
 </style>
 <div class="featured container-fluid ">
     <h1>Ask AI</h1>
-    <img  src="{% static "img/mind.png" %} " height="300">
+    <img src="{% static 'img/mind.png' %} " height="300">
     <div class="centered col-auto">
         {% include "question.html" with form=form csrf_token=csrf_token only%}
     </div>
@@ -47,7 +54,8 @@
 
 </div>
 <div class="container-fluid attribution">
-    <a class="attribution"href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by itim2101 - Flaticon</a>
+    <a class="attribution" href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by
+        itim2101 - Flaticon</a>
 </div>
 
 
