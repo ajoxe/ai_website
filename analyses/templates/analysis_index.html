@@ -1,18 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
 {% block page_content %}
+
 <style>
 body {
     background-color: black !important;
 }
 .navbar {
-background-color: black !important;
+    background-color: black !important;
 }
 .navbar-brand {
     color: #475f5b !important;
 }
 .ai-nav{
-color: #475f5b !important;
+    color: #475f5b !important;
 }
 .navbar-nav {
     color: white !important;
@@ -27,10 +28,10 @@ h5 {
     color: #89a7a1
 }
 label{
-color:#88F6DA
+    color:#88F6DA
 }
 .bk-slider-title{
-color:#88F6DA
+    color:#88F6DA
 }
 .featured {
   height: 90%;
@@ -41,81 +42,90 @@ color:#88F6DA
   clear:both;
 }
 
+
 </style>
 
 <div class="featured container-fluid">
-{{ featured_contents|safe }}
+    {{ featured_contents|safe }}
 </div>
 
-<div class="stext-center carousel container-fluid docked" style="background-color: #0A0A0A;" >
-   <div id="collapseOne" aria-labelledby="headingOne" class="row d-flex align-items-center collapse">
-      <div class="col-1 d-flex align-items-center justify-content-center">
-         <a href="#carouselExampleIndicators" role="button" data-slide="prev">
+<div class="stext-center carousel container-fluid docked" style="background-color: #0A0A0A;">
+    <div id="collapseOne" aria-labelledby="headingOne" class="row d-flex align-items-center collapse">
+        <div class="col-1 d-flex align-items-center justify-content-center">
+            <a href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <div class="carousel-nav-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                         xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <path fill="#9FD7B8"
+                              d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6,1.6-1.6,4.2 0,5.8l54,53.9z"/>
+                    </svg>
+                </div>
+            </a>
+        </div>
+        <div class="col-10">
+            <!--Start carousel-->
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            {% for analysis in analyses %}
+                            {% if forloop.counter0 <= 2 %}
+                            <div class="col-md-4">
+                                <a href="{% url 'analysis_detail' analysis.pk %}">
+                                    <div style="background-image:url('{% static analysis.preview_image %}');"
+                                         class="col-4 col-md d-flex align-items-center justify-content-center">
+
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title text-truncate">{{ analysis.name }}</h5>
+                                    <p class="card-text text-truncate">{{ analysis.description }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            {% for analysis in analyses %}
+                            {% if forloop.counter0 >= 3 and forloop.counter0 <= 5 %}
+                            <div class="col-md-4">
+                                <a href="{% url 'analysis_detail' analysis.pk %}">
+                                    <div style="background-image:url('{% static analysis.preview_image %}');"
+                                         class="col-4 col-md d-flex align-items-center justify-content-center">
+
+                                    </div>
+                                </a>
+                                <div class="card-body">
+                                    <h5 class="card-title text-truncate">{{ analysis.name }}</h5>
+                                    <p class="card-text text-truncate">{{ analysis.description }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End carousel-->
+        </div>
+        <div class="col-1 d-flex align-items-center justify-content-center"><a href="#carouselExampleIndicators"
+                                                                               data-slide="next">
             <div class="carousel-nav-icon">
-               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
-                  <path fill="#9FD7B8" d="m88.6,121.3c0.8,0.8 1.8,1.2 2.9,1.2s2.1-0.4 2.9-1.2c1.6-1.6 1.6-4.2 0-5.8l-51-51 51-51c1.6-1.6 1.6-4.2 0-5.8s-4.2-1.6-5.8,0l-54,53.9c-1.6,1.6-1.6,4.2 0,5.8l54,53.9z"/>
-               </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129"
+                     xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <path fill="#9FD7B8"
+                          d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"/>
+                </svg>
             </div>
-         </a>
-      </div>
-      <div class="col-10">
-         <!--Start carousel-->
-         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="row">
-                      {% for analysis in analyses %}
-                            {% if  forloop.counter0 <= 2 %}
-                      <div class="col-md-4">
-                          <a href="{% url 'analysis_detail' analysis.pk %}">
-                            <div style="background-image:url('{% static analysis.preview_image %}');" class="col-4 col-md d-flex align-items-center justify-content-center" >
-
-                            </div>
-                          </a>
-                            <div class="card-body">
-                                <h5 class="card-title text-truncate">{{ analysis.name }}</h5>
-                                <p class="card-text text-truncate">{{ analysis.description }}</p>
-                            </div>
-                      </div>
-                            {% endif %}
-                        {% endfor %}
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="row">
-                     {% for analysis in analyses %}
-                            {% if  forloop.counter0 >= 3 and forloop.counter0 <= 5  %}
-                      <div class="col-md-4">
-                          <a href="{% url 'analysis_detail' analysis.pk %}">
-                            <div style="background-image:url('{% static analysis.preview_image %}');" class="col-4 col-md d-flex align-items-center justify-content-center" >
-
-                            </div>
-                          </a>
-                            <div class="card-body">
-                                <h5 class="card-title text-truncate">{{ analysis.name }}</h5>
-                                <p class="card-text text-truncate">{{ analysis.description }}</p>
-                            </div>
-                      </div>
-                            {% endif %}
-                        {% endfor %}
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!--End carousel-->
-      </div>
-      <div class="col-1 d-flex align-items-center justify-content-center"><a  href="#carouselExampleIndicators" data-slide="next">
-         <div class="carousel-nav-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 129 129" xmlns:xlink="http://www.w3.org/1999/xlink">
-               <path fill="#9FD7B8" d="m40.4,121.3c-0.8,0.8-1.8,1.2-2.9,1.2s-2.1-0.4-2.9-1.2c-1.6-1.6-1.6-4.2 0-5.8l51-51-51-51c-1.6-1.6-1.6-4.2 0-5.8 1.6-1.6 4.2-1.6 5.8,0l53.9,53.9c1.6,1.6 1.6,4.2 0,5.8l-53.9,53.9z"/>
-            </svg>
-         </div>
-         </a>
-      </div>
-   </div>
+        </a>
+        </div>
+    </div>
 </div>
 <div class="container-fluid attribution">
-    <a class="attribution" href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by Darius Dan - Flaticon</a>
+    <a class="attribution" href="https://www.flaticon.com/free-icons/brain" title="brain icons">Brain icons created by
+        Darius Dan - Flaticon</a>
 </div>
 {% endblock %}
