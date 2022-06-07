@@ -60,7 +60,7 @@ margin-left: auto;
   clear:both;
 }
 .ai-nav{
-left: 60%;
+left: 50%;
 align-items:flex-end !important;
 display: inline-block;
 }
@@ -73,6 +73,11 @@ padding-top: 20px;
 }
 .ai-nav{
 color: #b3b3b3 !important;
+}
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
 <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/logo.png' %}" />
@@ -96,6 +101,9 @@ color: #b3b3b3 !important;
 <!--            </li>-->
             <li class="nav-item ai-nav active">
               <a class="nav-link ai-nav" href="{% url 'analysis_all' %}">All Analyses</a>
+            </li>
+              <li class="nav-item ai-nav active">
+              <a class="nav-link ai-nav" href="{% url 'question' %}">Ask AI</a>
             </li>
           </ul>
         </div>

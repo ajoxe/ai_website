@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from analyses.models import Analysis
 from django.contrib.staticfiles import finders
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+
+from .forms import QuestionForm
+from .forms import Answer
+from django import forms
+from .query import search
 
 
 def analysis_index(request):
@@ -44,3 +51,21 @@ def analysis_all(request):
         'analyses': analyses
     }
     return render(request, 'analysis_all.html', context)
+
+
+def get_answer(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        form = QuestionForm(request.POST)
+        answer_form = Answer("test", ["test 1", "test 2"])
+        if form.is_valid():
+            question = form.cleaned_data.get("question")
+            answer_fields = search(question)
+            answer_form = Answer(answer_fields[0], answer_fields[1], question)
+
+        print("*********** ******** **************")
+        return render(request, 'ask_ai.html', {'form': QuestionForm(), 'answer': answer_form})
+    else:
+        form = QuestionForm()
+
+    return render(request, 'ask_ai.html', {'form': form, 'answer': Answer()})
