@@ -85,7 +85,7 @@ color:#88F6DA
                <div class="carousel-item">
                   <div class="row">
                      {% for analysis in analyses %}
-                            {% if  forloop.counter0 >= 3 %}
+                            {% if  forloop.counter0 >= 3 and forloop.counter0 <= 5  %}
                       <div class="col-md-4">
                           <a href="{% url 'analysis_detail' analysis.pk %}">
                             <div style="background-image:url('{% static analysis.preview_image %}');" class="col-4 col-md d-flex align-items-center justify-content-center" >
