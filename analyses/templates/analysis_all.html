@@ -36,12 +36,13 @@ h1 {
     {% for analysis in analyses %}
     <div class="col-md-4">
         <div class="card mb-2">
-            <img class="card-img-top" src="{% static analysis.preview_image %} " height="300">
+            <a href="{% url 'analysis_detail' analysis.pk %}">
+                <img class="card-img-top" src="{% static analysis.preview_image %} " height="300">
+            </a>
             <div class="card-body">
                 <h5 class="card-title">{{ analysis.name }}</h5>
                 <p class="card-text">{{ analysis.description }}</p>
-                <a href="{% url 'analysis_detail' analysis.pk %}"
-                   class="btn btn-primary shadow-none">
+                <a href="{% url 'analysis_detail' analysis.pk %}" class="btn btn-primary shadow-none">
                     View
                 </a>
             </div>
