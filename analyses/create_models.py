@@ -35,10 +35,10 @@ a4 = Analysis(
 a4.save()
 
 a5 = Analysis(
-    name="Top Researchers per Calamity",
-    description="Top Researchers per Calamity per author",
-    graph='graph/top_researchers_per_calamity.html',
-    preview_image='img/top_researchers_per_calamity.png'
+    name="Explore Papers on Natural Disasters",
+    description="Demo based on 8000 papers realated to natural disasters plotted into 2 dimensions",
+    graph='graph/explore_papers.html',
+    preview_image='img/explore_papers.png'
 )
 a5.save()
 
@@ -51,9 +51,19 @@ a6 = Analysis(
 a6.save()
 
 a7 = Analysis(
+    name="Top Researchers per Calamity",
+    description="Top Researchers per Calamity per author",
+    graph='graph/top_researchers_per_calamity.html',
+    preview_image='img/top_researchers_per_calamity.png'
+)
+a7.save()
+
+a8 = Analysis(
     name="K-Means Clustering of Natural Disaster papers",
     description="Papers of the same color represent a cluster of similar theme. Papers appearing closer together are closer in content.",
     graph='graph/research_paper_clusters.html',
     preview_image='img/research_paper_clustering.png'
 )
-a7.save()
+a8.save()
+
+

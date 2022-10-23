@@ -3,16 +3,16 @@
         <h3>{{response.question}}</h3>
     </div>
     <div class="centered row">
-        <div class="row">
-            <p>
-                {{response.answer_text}}
-            </p>
+        <div class="row block_answer container-fluid" style="padding-top: 20px;">
+            {{response.answer_one}}
+            <br>
+            <a href="{{response.link_one}}"> {{response.link_one}} </a>
         </div>
-        <div class="block_answer container-fluid">
-            <a href="https://{{ answer.link_one }}"> {{response.link_one}} </a>
-        </div>
-        <div class="block_answer container-fluid">
-            <a href="https://{{ answer.link_two }}"> {{response.link_two}} </a>
+        <br>
+        <div class="row block_answer container-fluid" style="padding-top: 20px; padding-bottom: 5px;">
+            {{response.answer_two}}
+            <br>
+            <a href="{{response.link_two}}"> {{response.link_two}} </a>
         </div>
     </div>
 
