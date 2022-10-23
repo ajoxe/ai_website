@@ -3,10 +3,6 @@ from analyses.models import Analysis
 from django.contrib.staticfiles import finders
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.http import HttpResponse
-from urllib.request import urlopen
-import json
-from urllib.request import build_opener, HTTPCookieProcessor
 
 from .forms import QuestionForm
 from .forms import Answer
@@ -14,6 +10,7 @@ from django import forms
 from .query import search
 
 
+# Returns short form card view for analysis. Used in carousel and all analyses page.
 def analysis_index(request):
     analyses = Analysis.objects.all()
     featured_path = 'graph/plotly.html'
@@ -27,19 +24,13 @@ def analysis_index(request):
     return render(request, 'analysis_index.html', context)
 
 
+# Returns long form full detail page for analysis.
 def analysis_detail(request, pk):
     analyses = Analysis.objects.all()
     analysis = Analysis.objects.get(pk=pk)
     file_handle = finders.find(analysis.graph)
-    # file_handle = finders.find('graph/explore_papers.html')
     with open(file_handle, 'r') as f:
         contents = f.read()
-    # url = 'https://octaves0911.streamlitapp.com/octaves0911/streamlit-viz/viz.py'
-    # opener = build_opener(HTTPCookieProcessor())
-    # response = opener.open(url).read()
-    # # print(response)
-    # print(response.decode("utf-8"))
-    # contents = response.decode("utf-8")
     contents_2 = None
     if analysis.secondary_graph is not None and analysis.secondary_graph != 'plotly.html':
         file_handle = finders.find(analysis.secondary_graph)
@@ -56,6 +47,7 @@ def analysis_detail(request, pk):
     return render(request, 'analysis_detail.html', context)
 
 
+# Returns a list of all analysis graphs as analysis_index card views
 def analysis_all(request):
     analyses = Analysis.objects.all()
     context = {
@@ -63,7 +55,7 @@ def analysis_all(request):
     }
     return render(request, 'analysis_all.html', context)
 
-
+# Used for ask_ai page, returns an answer to a query as well as the initial empty state for the page.
 def get_answer(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -73,12 +65,16 @@ def get_answer(request):
             question = form.cleaned_data.get("question")
             answer_fields = search(question)
             answer_form = Answer(answer_fields[0], answer_fields[1], question)
+        # We'll clear the form after processing and return the query results
         return render(request, 'ask_ai.html', {'form': QuestionForm(), 'answer': answer_form})
     else:
+        # For the initial page request, we set the form and answer to an empty state.
         form = QuestionForm()
+        answer = Answer()
 
-    return render(request, 'ask_ai.html', {'form': form, 'answer': Answer()})
+    return render(request, 'ask_ai.html', {'form': form, 'answer': answer})
 
 
+# Returns embedded active learner labeling app
 def get_active_learner(request):
     return render(request, 'active_learner_labeling_app.html')
