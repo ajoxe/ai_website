@@ -2,6 +2,8 @@
 
 Website to display interactive ML charts, graphs, and apps from different sources in a single place, with a unified UI. This is accomplished using Django to manage the data, because tbh javascript is not really my thing. 
 
+NB: Embedded streamlit apps only work on Chrome, so ... just use that ...
+
 <img width="1792" alt="ndi_index" src="https://user-images.githubusercontent.com/32021190/197376140-0af79e8f-2586-4d4d-b7dc-76a65c766d52.png">
 <img width="1791" alt="ndi_grid" src="https://user-images.githubusercontent.com/32021190/197376144-639ec764-a0ee-4391-87b1-318f7742eb84.png">
 <img width="1792" alt="ndi_graph" src="https://user-images.githubusercontent.com/32021190/197376149-4b909856-7217-497a-b02d-fd81304be848.png">
