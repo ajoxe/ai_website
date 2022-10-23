@@ -55,7 +55,9 @@ def analysis_all(request):
     }
     return render(request, 'analysis_all.html', context)
 
+
 # Used for ask_ai page, returns an answer to a query as well as the initial empty state for the page.
+# NB: Embedded apps will not work in Safari. Please use Chrome instead.
 def get_answer(request):
     # if this is a POST request we need to process the form data
     if request.method == 'POST':
@@ -63,8 +65,8 @@ def get_answer(request):
         answer_form = Answer()
         if form.is_valid():
             question = form.cleaned_data.get("question")
-            answer_fields = search(question)
-            answer_form = Answer(answer_fields[0], answer_fields[1], question)
+            answers = search(question)
+            answer_form = Answer(answers, question)
         # We'll clear the form after processing and return the query results
         return render(request, 'ask_ai.html', {'form': QuestionForm(), 'answer': answer_form})
     else:
@@ -75,6 +77,7 @@ def get_answer(request):
     return render(request, 'ask_ai.html', {'form': form, 'answer': answer})
 
 
-# Returns embedded active learner labeling app
+# Returns embedded active learner labeling app.
+# NB: Embedded apps will not work in Safari
 def get_active_learner(request):
     return render(request, 'active_learner_labeling_app.html')

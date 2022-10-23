@@ -3,17 +3,14 @@
         <h3>{{response.question}}</h3>
     </div>
     <div class="centered row">
-        <div class="row block_answer container-fluid" style="padding-top: 20px;">
-            {{response.answer_one}}
+        {% for answer in response.answers %}
+            <div class="row block_answer container-fluid" style="padding-top: 20px;">
+                {{answer.answer_text}}
+                <br>
+                <a href="{{answer.answer_link}}"> {{answer.answer_link}} </a>
+            </div>
             <br>
-            <a href="{{response.link_one}}"> {{response.link_one}} </a>
-        </div>
-        <br>
-        <div class="row block_answer container-fluid" style="padding-top: 20px; padding-bottom: 5px;">
-            {{response.answer_two}}
-            <br>
-            <a href="{{response.link_two}}"> {{response.link_two}} </a>
-        </div>
+        {% endfor %}
     </div>
 
 </div>
